@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+index
+{% endblock %}
+{% block main %}
+<body> 
+  <h1 style="color:rgb(69, 69, 198);"><u>A2Z Vault</u> </h1>
+<br><br>
+ <h2>Welcome user {{ session.user_name }}</h2> <br>
+ <h3><strong>Your uploaded files are:</strong>  <br><br><br></h3>
+ {% for item in files %}
+
+        <div class="item_custom">
+          <div class="col-md-11 list_custom">
+            <div style="overflow: hidden;">
+              
+                <table class="table" style="text-align:center;">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <!-- <th scope="col">Last Modified</th> -->
+                      <th scope="col">Filename</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <a href="/retrieve/{{item.id}}" target="_blank"></a>
+                  <tbody>
+                    <tr>
+                      <th width="100px"scope="row">{{loop.index}}</th>
+                      <td width="100px"><h4 style="font-size: 1rem;" class="custom_txt"><a href="/retrieve/{{item.id}}" target="_blank">{{ item.name }}</a></h4></td>
+                      <td width="100px"><a href="/delete/{{item.id}}" class="btn-delete">Delete</a></td>
+                    </tr>
+                    <tr>
+                    </tbody>
+                    </table>
+              </a>
+
+              </div>
+            </div>
+          </div> 
+
+    {% endfor %} <br><br>
+ <a href="/upload" class="btn-upload">Go to upload</a>
+ 
+</body>
+
+</html>
+{%endblock%}

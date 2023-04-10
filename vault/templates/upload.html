@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}
+    Upload File
+{% endblock %}
+{% block main %}
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="inputFile">File input</label>
+        <input type="file" name="inputFile">
+    </div>
+    <button type="submit">Submit</button>
+    
+</form>
+<br>
+
+    {% if (message == 1 ) %}
+        <center>
+            <header  style="color:white;box-shadow: 5px 7px 15px black;border: 2px solid red;border-radius: 50px;background-color: red;width:300px ">
+
+                File Uploaded Successfully.
+
+            </header>
+        </center>
+
+
+    {% endif %}
+
+<br>
+<a href="/home">Return to home page</a>    
+{% endblock %}
